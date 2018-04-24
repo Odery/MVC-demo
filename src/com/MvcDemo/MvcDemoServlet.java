@@ -8,11 +8,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/com.MvcDemo.MvcDemoServlet")
+@WebServlet("/MvcDemoServlet")
 public class MvcDemoServlet  extends HttpServlet {
     public void doGet (HttpServletRequest request, HttpServletResponse response){
-        String[] peoples = {"Thor","Athena","Dante","Loki","Virgil"};
-        request.setAttribute("peoples",peoples);
+        StudentDataUtil studentDataUtil = new StudentDataUtil();
+        request.setAttribute("peoples",studentDataUtil.getStudents());
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/MvcDemo.jsp");
         try {
